@@ -20,10 +20,10 @@ writer = Turtle(visible=False)
 aim = vector(5, 0)
 pacman = vector(-20, 0)
 ghosts = [
-    [vector(-100, 100), vector(5, 0)],
-    [vector(-140, -100), vector(0, 5)],
-    [vector(60, 100), vector(0, -5)],
-    [vector(100, -100), vector(-5, 0)],
+        [vector(-100, 100), vector(15, 0)],
+    [vector(-140, -100), vector(0, 15)],
+    [vector(60, 100), vector(0, -15)],
+    [vector(100, -100), vector(-15, 0)],
 ]
 # fmt: off
 tiles = [
