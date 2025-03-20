@@ -106,6 +106,28 @@ def world():
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'white')
 
+def chase(ghost, pacman):
+    #possible options for direction change
+    options = [
+        vector(5, 0),
+        vector(-5, 0),
+        vector(0, 5),
+        vector(0, -5),
+    ]
+    
+    best = options[0]
+    min = float('inf')
+    
+    #find the minimum distance between pacman and each ghost
+    for option in options:
+        newPoint = ghost + option
+        if valid(newPoint):
+            distance = abs(pacman - newPoint)
+            if distance < min:
+                min = distance
+                best = option
+    
+    return best
 
 def move():
     """Move pacman and all ghosts."""
@@ -134,13 +156,8 @@ def move():
         if valid(point + course):
             point.move(course)
         else:
-            options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
-            ]
-            plan = choice(options)
+            #call the chase function for each ghost
+            plan = chase(point, pacman)
             course.x = plan.x
             course.y = plan.y
 
