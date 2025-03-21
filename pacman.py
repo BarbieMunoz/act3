@@ -120,9 +120,9 @@ def chase(ghost, pacman):
     
     #find the minimum distance between pacman and each ghost
     for option in options:
-        newPoint = ghost + option
-        if valid(newPoint):
-            distance = abs(pacman - newPoint)
+        new_point = ghost + option
+        if valid(new_point):
+            distance = abs(pacman - new_point)
             if distance < min:
                 min = distance
                 best = option
